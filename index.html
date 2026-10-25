@@ -3,168 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Market Data Analysis Project</title>
+    <title>Data Analyst Skill Demand Analysis</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
+
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            padding: 20px;
+            color: #263247;
+            background: #ffffff;
         }
-        header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-        }
-        .card {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .card h2 {
-            color: #1e3c72;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .tech-stack {
+
+        .navbar {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #101c35;
             flex-wrap: wrap;
-            margin-top: 10px;
+            gap: 15px;
         }
-        .badge {
-            background: #eef2f5;
-            color: #1e3c72;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border: 1px solid #cbd5e1;
+
+        .logo {
+            color: #38bdf8;
+            font-size: 25px;
         }
-        pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-size: 0.95rem;
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            flex-wrap: wrap;
         }
-        .btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .btn {
-            background-color: #25d366;
-            color: white;
-            padding: 12px 25px;
+
+        .navbar a {
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: 0.3s ease;
-            display: inline-block;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
         }
+
+        .navbar a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            color: white;
+            background: linear-gradient(120deg, #101c35, #155e91);
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .tagline {
+            color: #7dd3fc;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #38bdf8;
+            color: #101c35;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
         .btn:hover {
-            background-color: #1ebd56;
+            background: white;
             transform: translateY(-2px);
         }
+
+        .section {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #102344;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 0 auto 35px;
+            color: #64748b;
+        }
+
+        .light {
+            background: #f1f7fc;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .card {
+            padding: 28px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(15, 35, 60, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #087eae;
+            margin-bottom: 12px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .skill {
+            background: #ffffff;
+            padding: 22px 12px;
+            border-radius: 8px;
+            border: 1px solid #dbeafe;
+            font-weight: bold;
+            color: #155e91;
+            box-shadow: 0 4px 12px rgba(15, 35, 60, 0.05);
+        }
+
+        .insight-box {
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 25px;
+            text-align: left;
+            background: white;
+            border-left: 5px solid #0ea5e9;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(15, 35, 60, 0.06);
+        }
+
+        .insight-box h3 {
+            color: #087eae;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact p {
+            max-width: 750px;
+            margin: 0 auto 25px;
+        }
+
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #777;
-            font-size: 0.9rem;
+            padding: 25px 15px;
+            background: #101c35;
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                justify-content: center;
+            }
+
+            .navbar ul {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 65px 7%;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .section {
+                padding: 50px 7%;
+            }
+
+            .section h2 {
+                font-size: 27px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Job Market Data Analysis</h1>
-        <p>Comprehensive analysis of tech skills, job roles, and hiring demand</p>
-    </header>
+<header>
+    <nav class="navbar">
+        <h2 class="logo">SkillAnalysis</h2>
 
-    <div class="container">
-        <!-- Overview Section -->
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#tools">Technologies</a></li>
+            <li><a href="#insights">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="tagline">DATA ANALYTICS PROJECT</p>
+
+        <h1>Data Analyst Skill<br>Demand Analysis</h1>
+
+        <p>
+            An analytical project to understand technical skill demand,
+            job opportunities, and work mode preferences in the job market.
+        </p>
+
+        <a href="#about" class="btn">Explore Project</a>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <h2>About the Project</h2>
+
+    <p class="description">
+        The Data Analyst Skill Demand Analysis project focuses on
+        identifying the most demanded technical skills in the job market.
+        It analyzes job roles, technical skills, work modes, and
+        geographical opportunities to help aspiring data analysts
+        make informed career decisions.
+    </p>
+
+    <div class="cards">
         <div class="card">
-            <h2>Project Overview</h2>
-            <p>This project analyzes job market trends to identify key technical skills, top hiring roles, and location-based job distributions. The analysis combines data cleaning, SQL query analysis, Python visualizations, and Power BI dashboards to extract actionable insights.</p>
-            
-            <h3 style="margin-top: 15px;">Technologies Used:</h3>
-            <div class="tech-stack">
-                <span class="badge">SQL</span>
-                <span class="badge">Python (Pandas, Matplotlib)</span>
-                <span class="badge">Power BI</span>
-                <span class="badge">Excel</span>
-                <span class="badge">HTML / CSS</span>
-            </div>
+            <h3>Project Domain</h3>
+            <p>Data Analytics</p>
         </div>
 
-        <!-- Key Insights Section -->
         <div class="card">
-            <h2>Key Findings & Insights</h2>
-            <ul>
-                <li><strong>High Demand Skills:</strong> SQL, Python, and Excel remain the top required skills across Data Analyst and Business Analyst postings.</li>
-                <li><strong>Work Mode Distribution:</strong> On-site and Hybrid roles dominate over fully Remote positions.</li>
-                <li><strong>Top Roles:</strong> Data Analyst, Business Analyst, and Business Intelligence Analyst show maximum open hiring positions.</li>
-            </ul>
+            <h3>Project Type</h3>
+            <p>Job Market Analysis</p>
         </div>
 
-        <!-- SQL Sample Section -->
         <div class="card">
-            <h2>Sample SQL Analysis</h2>
-            <p>Example query used to aggregate top skills from job postings data:</p>
-            <br>
-            <pre><code>SELECT skill_name, COUNT(job_id) AS total_postings
-FROM job_skills
-GROUP BY skill_name
-ORDER BY total_postings DESC
-LIMIT 10;</code></pre>
-        </div>
-
-        <!-- PDF Download Section -->
-        <div class="card" style="text-align: center;">
-            <h2>Full Documentation & Report</h2>
-            <p>Download the complete 6-chapter PDF project report with detailed methodologies and annexures.</p>
-            <div class="btn-container">
-                <a href="skill analysis.pdf" class="btn" download>📥 Download PDF Report</a>
-            </div>
+            <h3>Primary Goal</h3>
+            <p>Identify In-Demand Skills</p>
         </div>
     </div>
+</section>
 
-    <footer>
-        <p>Created by Jyoti Kamble | Data Analyst Project</p>
-    </footer>
+<section id="skills" class="section light">
+    <h2>Skills Analyzed</h2>
+
+    <p class="description">
+        The project examines the demand for important technical skills
+        required for data-related job roles.
+    </p>
+
+    <div class="skill-grid">
+        <div class="skill">SQL</div>
+        <div class="skill">Python</div>
+        <div class="skill">Microsoft Excel</div>
+        <div class="skill">Power BI</div>
+        <div class="skill">Tableau</div>
+        <div class="skill">Machine Learning</div>
+    </div>
+</section>
+
+<section id="tools" class="section">
+    <h2>Tools & Technologies</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Power BI</h3>
+            <p>Interactive dashboard and data visualization.</p>
+        </div>
+
+        <div class="card">
+            <h3>SQL / MySQL</h3>
+            <p>Data querying, grouping, and analysis.</p>
+        </div>
+
+        <div class="card">
+            <h3>Python</h3>
+            <p>Exploratory data analysis using pandas and matplotlib.</p>
+        </div>
+
+        <div class="card">
+            <h3>Microsoft Excel</h3>
+            <p>Dataset management and data preparation.</p>
+        </div>
+    </div>
+</section>
+
+<section id="insights" class="section light">
+    <h2>Key Insights</h2>
+
+    <div class="insight-box">
+        <h3>01. Technical Skills</h3>
+        <p>
+            The project findings identify SQL and Power BI as highly
+            demanded skills, with Python also being an important
+            competency for data-related roles.
+        </p>
+    </div>
+
+    <div class="insight-box">
+        <h3>02. Work Mode Analysis</h3>
+        <p>
+            Hybrid and On-Site work arrangements dominate the analyzed
+            job listings. The report records 21 Hybrid jobs and
+            17 On-Site jobs.
+        </p>
+    </div>
+
+    <div class="insight-box">
+        <h3>03. Job Opportunities</h3>
+        <p>
+            Pune and Mumbai emerged as key geographical locations
+            for data analyst opportunities in the analyzed dataset.
+        </p>
+    </div>
+</section>
+
+<section class="section contact">
+    <h2>Project Summary</h2>
+
+    <p>
+        This project demonstrates how data analytics tools can be
+        used to explore job market trends and identify useful
+        career development opportunities.
+    </p>
+
+    <a href="#home" class="btn">Back to Top</a>
+</section>
+
+<footer>
+    <p>Data Analyst Skill Demand Analysis | Academic Internship Project</p>
+    <p>Developed using HTML and CSS</p>
+</footer>
 
 </body>
 </html>
