@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Market Data Analysis Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .card h2 {
+            color: #1e3c72;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .badge {
+            background: #eef2f5;
+            color: #1e3c72;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid #cbd5e1;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #1ebd56;
+            transform: translateY(-2px);
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Job Market Data Analysis</h1>
+        <p>Comprehensive analysis of tech skills, job roles, and hiring demand</p>
+    </header>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <div class="card">
+            <h2>Project Overview</h2>
+            <p>This project analyzes job market trends to identify key technical skills, top hiring roles, and location-based job distributions. The analysis combines data cleaning, SQL query analysis, Python visualizations, and Power BI dashboards to extract actionable insights.</p>
+            
+            <h3 style="margin-top: 15px;">Technologies Used:</h3>
+            <div class="tech-stack">
+                <span class="badge">SQL</span>
+                <span class="badge">Python (Pandas, Matplotlib)</span>
+                <span class="badge">Power BI</span>
+                <span class="badge">Excel</span>
+                <span class="badge">HTML / CSS</span>
+            </div>
+        </div>
+
+        <!-- Key Insights Section -->
+        <div class="card">
+            <h2>Key Findings & Insights</h2>
+            <ul>
+                <li><strong>High Demand Skills:</strong> SQL, Python, and Excel remain the top required skills across Data Analyst and Business Analyst postings.</li>
+                <li><strong>Work Mode Distribution:</strong> On-site and Hybrid roles dominate over fully Remote positions.</li>
+                <li><strong>Top Roles:</strong> Data Analyst, Business Analyst, and Business Intelligence Analyst show maximum open hiring positions.</li>
+            </ul>
+        </div>
+
+        <!-- SQL Sample Section -->
+        <div class="card">
+            <h2>Sample SQL Analysis</h2>
+            <p>Example query used to aggregate top skills from job postings data:</p>
+            <br>
+            <pre><code>SELECT skill_name, COUNT(job_id) AS total_postings
+FROM job_skills
+GROUP BY skill_name
+ORDER BY total_postings DESC
+LIMIT 10;</code></pre>
+        </div>
+
+        <!-- PDF Download Section -->
+        <div class="card" style="text-align: center;">
+            <h2>Full Documentation & Report</h2>
+            <p>Download the complete 6-chapter PDF project report with detailed methodologies and annexures.</p>
+            <div class="btn-container">
+                <a href="skill analysis.pdf" class="btn" download>📥 Download PDF Report</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Jyoti Kamble | Data Analyst Project</p>
+    </footer>
+
+</body>
+</html>
